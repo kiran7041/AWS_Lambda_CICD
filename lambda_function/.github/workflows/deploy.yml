@@ -6,6 +6,7 @@ on:
       - main
       - test
 
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -52,7 +53,7 @@ jobs:
         AWS_DEFAULT_REGION: us-east-1
       run: |
         FUNCTION_NAME="cicd_lambda_${{ github.ref_name }}"
-        REGION="us-east-1"
+        REGION="us-east-2"
         echo "Deploying to Lambda function: $FUNCTION_NAME"
 
         # Check if the Lambda function exists
@@ -65,7 +66,7 @@ jobs:
           aws lambda create-function \
             --function-name $FUNCTION_NAME \
             --runtime python3.11 \
-            --role arn:aws:iam::851725469799:role/service-role/test_function-role-k06sk5ka \
+            --role arn:aws:iam::848616929706:role/test_lambda_dev \
             --handler app.lambda_handler \
             --timeout 300 \
             --zip-file fileb://lambda.zip \
