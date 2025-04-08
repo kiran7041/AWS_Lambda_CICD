@@ -52,7 +52,7 @@ jobs:
         AWS_DEFAULT_REGION: us-east-1
       run: |
         FUNCTION_NAME="cicd_lambda_${{ github.ref_name }}"
-        REGION="us-east-1"
+        REGION="us-east-2"
         echo "Deploying to Lambda function: $FUNCTION_NAME"
 
         # Check if the Lambda function exists
