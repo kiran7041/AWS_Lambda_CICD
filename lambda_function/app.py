@@ -8,7 +8,6 @@ def lambda_handler(event, context):
     response = requests.get("https://jsonplaceholder.typicode.com/posts")
     data = response.json()
     
-
     df = pd.DataFrame(data)
     print(df.head())
 
